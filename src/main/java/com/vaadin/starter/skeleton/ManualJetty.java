@@ -33,11 +33,15 @@ public final class ManualJetty {
         context.getServletContext().setExtendedListenerTypes(true);
         context.addEventListener(new ServletContextListeners());
 
-        final Server server = new Server(8080);
+        int port = 8080;
+        if (args.length >= 1) {
+            port = Integer.parseInt(args[0]);
+        }
+        final Server server = new Server(port);
         server.setHandler(context);
         server.start();
         System.out.println("\n\n=================================================\n\n" +
-        "Please open http://localhost:8080 in your browser\n\n" +
+        "Please open http://localhost:" + port + " in your browser\n\n" +
         "If you see the 'Unable to determine mode of operation' exception, just kill me and run `mvn -C clean package`\n\n" +
         "=================================================\n\n");
         server.join();
