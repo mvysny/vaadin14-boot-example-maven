@@ -11,20 +11,20 @@ import java.net.URI;
 import java.net.URL;
 
 /**
+ * Run {@link #main(String[])} to launch your app in Embedded Jetty.
  * @author mavi
  */
 public final class ManualJetty {
     public static void main(String[] args) throws Exception {
-        URL webRootLocation = ManualJetty.class.getResource("/webapp/");
-        URI webRootUri = webRootLocation.toURI();
+        final URI webRootUri = ManualJetty.class.getResource("/webapp/").toURI();
 
-        WebAppContext context = new WebAppContext();
+        final WebAppContext context = new WebAppContext();
         context.setBaseResource(Resource.newResource(webRootUri));
         context.setContextPath("/");
         context.addServlet(VaadinServlet.class, "/*");
         context.setAttribute("org.eclipse.jetty.server.webapp.ContainerIncludeJarPattern", ".*\\.jar|.*/classes/.*");
         context.setConfigurationDiscovered(true);
-        context.setConfigurations(new Configuration[]{
+        context.setConfigurations(new Configuration[] {
                 new AnnotationConfiguration(),
                 new WebInfConfiguration(),
                 new WebXmlConfiguration(),
@@ -33,7 +33,7 @@ public final class ManualJetty {
         context.getServletContext().setExtendedListenerTypes(true);
         context.addEventListener(new ServletContextListeners());
 
-        Server server = new Server(8080);
+        final Server server = new Server(8080);
         server.setHandler(context);
         server.start();
         System.out.println("\n\n=================================================\n\n" +
