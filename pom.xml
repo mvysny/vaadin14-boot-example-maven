@@ -227,6 +227,39 @@
         </profile>
 
         <profile>
+            <id>heroku</id>
+            <!-- we need to install node+npm locally so that the build succeeds on Heroku, since Heroku Java build lacks node+npm -->
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.github.eirslett</groupId>
+                        <artifactId>frontend-maven-plugin</artifactId>
+                        <version>1.8.0</version>
+                        <executions>
+                            <execution>
+                                <id>install node and npm</id>
+                                <goals>
+                                    <goal>install-node-and-npm</goal>
+                                </goals>
+                                <!-- optional: default phase is "generate-resources" -->
+                                <phase>generate-resources</phase>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <nodeVersion>v10.15.2</nodeVersion>
+
+                            <!-- optional: with node version greater than 4.0.0 will use npm provided by node distribution -->
+                            <npmVersion>5.8.0</npmVersion>
+
+                            <!-- optional: where to download node and npm from. Defaults to https://nodejs.org/dist/ -->
+<!--                            <downloadRoot>http://myproxy.example.org/nodejs/</downloadRoot>-->
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
             <id>integration-tests</id>
             <build>
                 <plugins>
