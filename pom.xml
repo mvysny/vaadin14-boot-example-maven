@@ -227,7 +227,7 @@
         </profile>
 
         <profile>
-            <id>heroku</id>
+            <id>heroku2222</id>
             <!-- we need to install node+npm locally so that the build succeeds on Heroku, since Heroku Java build lacks node+npm -->
             <build>
                 <plugins>

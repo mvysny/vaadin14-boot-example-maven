@@ -29,6 +29,20 @@ To package in production mode:
 
 Head to [localhost:8080/](http://localhost:8080).
 
+## Heroku Integration
+
+See the [Live Demo of the app running on Heroku](https://vaadin14-embedded-jetty.herokuapp.com/).
+
+To integrate with Heroku, you need to activate two Maven profiles:
+
+1. The 'production' profile which packages Vaadin in production mode
+2. The 'heroku' profile which installs local node+npm in order for Vaadin Maven build to successfully run webpack to package for production.
+
+Both profiles are activated by [heroku-settings.xml](heroku-settings.xml) Maven Settings file. To use the settings
+file during Heroku build, set the `MAVEN_SETTINGS_PATH` config var to `heroku-settings.xml` in Heroku project settings tab.
+See [Using a Custom Maven Settings File](https://devcenter.heroku.com/articles/using-a-custom-maven-settings-xml) and
+[Stack Overflow: Activate Maven Profile On Heroku](https://stackoverflow.com/questions/11162194/triggering-maven-profiles-from-heroku-configured-environment-variables) for more details.
+
 ## More info
 
 Run using `mvn jetty:run` and open [http://localhost:8080](http://localhost:8080) in the browser.
