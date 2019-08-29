@@ -21,3 +21,6 @@ drivers/
 error-screenshots/
 
 webpack.generated.js
+
+# local node+npm downloaded via frontend-maven-plugin
+node
