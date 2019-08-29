@@ -8,14 +8,14 @@ embedded Jetty, as a simple `main()` method.
 
 ## Developing
 
-To access it directly from github, clone the repository and import the project to the IDE of your choice as a Maven project. You need to have Java 8 or 11 installed.
+Clone this github repository and import the project to the IDE of your choice as a Maven project. You need to have Java 8 or 11 installed.
 
 1. Import the project into your IDE
-2. Run `mvn -C clean package` in the project
-3. Run the `ManualJetty` class as an application (run the `main()` method).
+2. Run `mvn -C clean package` in the project, to configure Vaadin for npm mode.
+3. Run/Debug the `ManualJetty` class as an application (run the `main()` method).
    The app will use npm to download all javascript libraries (will take a long time)
    and will start in development mode.
-
+   
 See [ManualJetty.java](src/main/java/com/vaadin/starter/skeleton/ManualJetty.java)
 for details on how to configure Jetty properly.
 
@@ -47,9 +47,5 @@ See [Using a Custom Maven Settings File](https://devcenter.heroku.com/articles/u
 [Stack Overflow: Activate Maven Profile On Heroku](https://stackoverflow.com/questions/11162194/triggering-maven-profiles-from-heroku-configured-environment-variables) for more details.
 
 ## More info
-
-Run using `mvn jetty:run` and open [http://localhost:8080](http://localhost:8080) in the browser.
-
-If you want to run your app locally in the production mode, run `mvn jetty:run -Pproduction`.
 
 For a full Vaadin application example, there are more choices available also from [vaadin.com/start](https://vaadin.com/start) page.
