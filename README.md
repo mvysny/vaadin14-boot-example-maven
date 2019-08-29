@@ -36,7 +36,10 @@ See the [Live Demo of the app running on Heroku](https://vaadin14-embedded-jetty
 To integrate with Heroku, you need to activate two Maven profiles:
 
 1. The 'production' profile which packages Vaadin in production mode
-2. The 'heroku' profile which installs local node+npm in order for Vaadin Maven build to successfully run webpack to package for production.
+2. The 'heroku' profile which uses the `frontend-maven-plugin` to install local node+npm in order for Vaadin Maven build to successfully run webpack to package for production.
+
+> Note: unfortunately adding the `heroku:nodejs` buildpack in Heroku project settings did not worked for me,
+I had to use the `frontend-maven-plugin`
 
 Both profiles are activated by [heroku-settings.xml](heroku-settings.xml) Maven Settings file. To use the settings
 file during Heroku build, set the `MAVEN_SETTINGS_PATH` config var to `heroku-settings.xml` in Heroku project settings tab.

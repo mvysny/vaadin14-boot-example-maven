@@ -227,7 +227,7 @@
         </profile>
 
         <profile>
-            <id>heroku2222</id>
+            <id>heroku</id>
             <!-- we need to install node+npm locally so that the build succeeds on Heroku, since Heroku Java build lacks node+npm -->
             <build>
                 <plugins>
@@ -246,7 +246,7 @@
                             </execution>
                         </executions>
                         <configuration>
-                            <nodeVersion>v10.15.2</nodeVersion>
+                            <nodeVersion>v10.16.0</nodeVersion>
 
                             <!-- optional: with node version greater than 4.0.0 will use npm provided by node distribution -->
                             <npmVersion>5.8.0</npmVersion>
