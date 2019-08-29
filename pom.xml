@@ -241,18 +241,10 @@
                                 <goals>
                                     <goal>install-node-and-npm</goal>
                                 </goals>
-                                <!-- optional: default phase is "generate-resources" -->
-                                <phase>generate-resources</phase>
                             </execution>
                         </executions>
                         <configuration>
                             <nodeVersion>v10.16.0</nodeVersion>
-
-                            <!-- optional: with node version greater than 4.0.0 will use npm provided by node distribution -->
-                            <npmVersion>5.8.0</npmVersion>
-
-                            <!-- optional: where to download node and npm from. Defaults to https://nodejs.org/dist/ -->
-<!--                            <downloadRoot>http://myproxy.example.org/nodejs/</downloadRoot>-->
                         </configuration>
                     </plugin>
                 </plugins>
