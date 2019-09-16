@@ -17,7 +17,7 @@ Clone this github repository and import the project to the IDE of your choice as
    and will start in development mode.
    
 See [ManualJetty.java](src/main/java/com/vaadin/starter/skeleton/ManualJetty.java)
-for details on how to configure Jetty properly.
+for details on how Jetty is configured for embedded mode.
 
 ## Packaging for production
 
