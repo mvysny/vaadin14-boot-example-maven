@@ -7,7 +7,7 @@
     <artifactId>vaadin14-embedded-jetty</artifactId>
     <name>Vaadin 14 with Embedded Jetty</name>
     <version>1.0-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -46,8 +46,7 @@
     <dependencies>
         <dependency>
             <groupId>com.vaadin</groupId>
-            <!-- Replace artifactId with vaadin-core to use only free components -->
-            <artifactId>vaadin</artifactId>
+            <artifactId>vaadin-core</artifactId>
             <exclusions>
                 <!-- Webjars are only needed when running in Vaadin 13 compatibility mode -->
                 <exclusion>
@@ -165,9 +164,9 @@
                             <mainClass>com.vaadin.starter.skeleton.ManualJetty</mainClass>
                         </manifest>
                     </archive>
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
+                    <descriptors>
+                        <descriptor>src/main/assembly/jar-with-dependencies.xml</descriptor>
+                    </descriptors>
                 </configuration>
                 <executions>
                     <execution>
