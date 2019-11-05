@@ -12,6 +12,9 @@
             <useProjectArtifact>true</useProjectArtifact>
             <unpack>true</unpack>
             <scope>runtime</scope>
+            <unpackOptions>
+                <excludes><exclude>META-INF/resources/webjars/**</exclude></excludes>
+            </unpackOptions>
         </dependencySet>
     </dependencySets>
 </assembly>
