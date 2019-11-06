@@ -2,6 +2,7 @@ package com.vaadin.starter.skeleton;
 
 import com.github.mvysny.kaributesting.v10.MockVaadin;
 import com.github.mvysny.kaributesting.v10.Routes;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import org.junit.After;
 import org.junit.Before;
@@ -36,6 +37,9 @@ public class MainViewTest {
 
     @Test
     public void clickButton() {
+        // open the Main View
+        UI.getCurrent().navigate(MainView.class);
+
         // simulate a button click as if clicked by the user
         _click(_get(Button.class, spec -> spec.withCaption("Click me")));
 
