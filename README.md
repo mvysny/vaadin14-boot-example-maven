@@ -25,13 +25,13 @@ To package in production mode:
 
 1. `mvn -C clean package -Pproduction`
 
-## Running in production mode
-
 The project packages itself in two ways:
 
 1. As an uber-jar (a jar with all dependencies, which you can simply launch with `java -jar`);
    the disadvantage is that the dependency jars are not clearly visible. The deployable file is in `target/vaadin14-embedded-jetty-1.0-SNAPSHOT-uberjar.jar`
 2. As a zip file with dependencies. The file is in `target/vaadin14-embedded-jetty-1.0-SNAPSHOT-zip.zip`
+
+## Running in production mode
 
 To build&run the uberjar:
 
