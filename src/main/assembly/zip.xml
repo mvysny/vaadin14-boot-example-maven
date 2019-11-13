@@ -8,13 +8,13 @@
     <includeBaseDirectory>false</includeBaseDirectory>
     <dependencySets>
         <dependencySet>
-            <outputDirectory>/libs</outputDirectory>
+            <outputDirectory>libs</outputDirectory>
         </dependencySet>
     </dependencySets>
     <fileSets>
         <fileSet>
             <directory>src/main/scripts</directory>
-            <outputDirectory>/</outputDirectory>
+            <outputDirectory></outputDirectory>
             <fileMode>0755</fileMode>
         </fileSet>
     </fileSets>
