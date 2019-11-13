@@ -155,8 +155,27 @@
                 </executions>
             </plugin>
 
+
+            <!-- configures the jar to include the classpath -->
+            <plugin>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>libs/</classpathPrefix>
+                            <classpathLayoutType>simple</classpathLayoutType>
+                            <mainClass>com.vaadin.starter.skeleton.ManualJetty</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+
+            <!-- creates both the "zip" and "uberjar" distributions -->
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.2.0</version>
                 <configuration>
                     <archive>
                         <manifest>
@@ -164,7 +183,8 @@
                         </manifest>
                     </archive>
                     <descriptors>
-                        <descriptor>src/main/assembly/jar-with-dependencies.xml</descriptor>
+                        <descriptor>src/main/assembly/uberjar.xml</descriptor>
+                        <descriptor>src/main/assembly/zip.xml</descriptor>
                     </descriptors>
                 </configuration>
                 <executions>
