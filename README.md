@@ -25,7 +25,7 @@ To package in production mode:
 
 1. `mvn -C clean package -Pproduction`
 2. `cd target`
-3. `java -jar vaadin14-embedded-jetty-1.0-SNAPSHOT-jar-with-dependencies.jar`
+3. `java -jar vaadin14-embedded-jetty-1.0-SNAPSHOT-uberjar.jar`
 
 Head to [localhost:8080/](http://localhost:8080).
 
