@@ -4,7 +4,6 @@ import com.vaadin.flow.server.VaadinServlet;
 import com.vaadin.flow.server.startup.ServletContextListeners;
 import org.eclipse.jetty.annotations.AnnotationConfiguration;
 import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.servlet.ServletHolder;
 import org.eclipse.jetty.util.resource.Resource;
 import org.eclipse.jetty.webapp.*;
 

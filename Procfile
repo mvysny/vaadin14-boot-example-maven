@@ -1,1 +1,1 @@
-web: java -jar target/vaadin14-embedded-jetty-*-jar-with-dependencies.jar $PORT
+web: java -jar target/vaadin14-embedded-jetty-*-uberjar.jar $PORT

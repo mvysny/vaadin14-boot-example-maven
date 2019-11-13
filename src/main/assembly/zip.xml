@@ -9,7 +9,13 @@
     <dependencySets>
         <dependencySet>
             <outputDirectory>/libs</outputDirectory>
-            <useProjectArtifact>false</useProjectArtifact>
         </dependencySet>
     </dependencySets>
+    <fileSets>
+        <fileSet>
+            <directory>src/main/scripts</directory>
+            <outputDirectory>/</outputDirectory>
+            <fileMode>0755</fileMode>
+        </fileSet>
+    </fileSets>
 </assembly>
