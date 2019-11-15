@@ -8,7 +8,10 @@ import org.eclipse.jetty.util.resource.Resource;
 import org.eclipse.jetty.webapp.*;
 import org.eclipse.jetty.websocket.jsr356.server.deploy.WebSocketServerContainerInitializer;
 
+import java.net.MalformedURLException;
 import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
 
 /**
  * Run {@link #main(String[])} to launch your app in Embedded Jetty.
@@ -24,10 +27,8 @@ public final class ManualJetty {
             System.setProperty("vaadin.productionMode", "true");
         }
 
-        final URI webRootUri = ManualJetty.class.getResource("/webapp/").toURI();
-
         final WebAppContext context = new WebAppContext();
-        context.setBaseResource(Resource.newResource(webRootUri));
+        context.setBaseResource(findWebroot());
         context.setContextPath("/");
         context.addServlet(VaadinServlet.class, "/*");
         context.setAttribute("org.eclipse.jetty.server.webapp.ContainerIncludeJarPattern", ".*\\.jar|.*/classes/.*");
@@ -61,6 +62,20 @@ public final class ManualJetty {
         final String probe = "META-INF/maven/com.vaadin/flow-server-production-mode/pom.xml";
         final ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
         return classLoader.getResource(probe) != null;
+    }
+
+    private static Resource findWebroot() throws URISyntaxException, MalformedURLException {
+        // don't look up directory as a resource, it's unreliable: https://github.com/eclipse/jetty.project/issues/4173#issuecomment-539769734
+        // instead we'll look up the /webapp/ROOT and retrieve the parent folder from that.
+        final URL f = ManualJetty.class.getResource("/webapp/ROOT");
+        if (f == null) {
+            throw new IllegalStateException("Invalid state: the resource /webapp/ROOT doesn't exist, has webapp been packaged in as a resource?");
+        }
+
+        // Resolve file to directory
+        URI webRootUri = f.toURI().resolve("./").normalize();
+        System.err.println("WebRoot is " + webRootUri);
+        return Resource.newResource(webRootUri);
     }
 }
 
