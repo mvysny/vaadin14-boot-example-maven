@@ -9,8 +9,6 @@ import org.eclipse.jetty.webapp.*;
 import org.eclipse.jetty.websocket.jsr356.server.deploy.WebSocketServerContainerInitializer;
 
 import java.net.MalformedURLException;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.URL;
 
 /**
@@ -18,7 +16,15 @@ import java.net.URL;
  * @author mavi
  */
 public final class ManualJetty {
+
+    private static Server server;
+
     public static void main(String[] args) throws Exception {
+        start(args);
+        server.join();
+    }
+
+    public static void start(String[] args) throws Exception {
 
         // detect&enable production mode
         if (isProductionMode()) {
@@ -28,7 +34,7 @@ public final class ManualJetty {
         }
 
         final WebAppContext context = new WebAppContext();
-        context.setBaseResource(findWebroot());
+        context.setBaseResource(findWebRoot());
         context.setContextPath("/");
         context.addServlet(VaadinServlet.class, "/*");
         context.setAttribute("org.eclipse.jetty.server.webapp.ContainerIncludeJarPattern", ".*\\.jar|.*/classes/.*");
@@ -48,14 +54,18 @@ public final class ManualJetty {
         if (args.length >= 1) {
             port = Integer.parseInt(args[0]);
         }
-        final Server server = new Server(port);
+        server = new Server(port);
         server.setHandler(context);
         server.start();
         System.out.println("\n\n=================================================\n\n" +
         "Please open http://localhost:" + port + " in your browser\n\n" +
         "If you see the 'Unable to determine mode of operation' exception, just kill me and run `mvn -C clean package`\n\n" +
         "=================================================\n\n");
-        server.join();
+    }
+
+    public static void stop() throws Exception {
+        server.stop();
+        server = null;
     }
 
     private static boolean isProductionMode() {
@@ -64,18 +74,23 @@ public final class ManualJetty {
         return classLoader.getResource(probe) != null;
     }
 
-    private static Resource findWebroot() throws URISyntaxException, MalformedURLException {
+    private static Resource findWebRoot() throws MalformedURLException {
         // don't look up directory as a resource, it's unreliable: https://github.com/eclipse/jetty.project/issues/4173#issuecomment-539769734
         // instead we'll look up the /webapp/ROOT and retrieve the parent folder from that.
         final URL f = ManualJetty.class.getResource("/webapp/ROOT");
         if (f == null) {
             throw new IllegalStateException("Invalid state: the resource /webapp/ROOT doesn't exist, has webapp been packaged in as a resource?");
         }
+        final String url = f.toString();
+        if (!url.endsWith("/ROOT")) {
+            throw new RuntimeException("Parameter url: invalid value " + url + ": doesn't end with /ROOT");
+        }
+        System.err.println("/webapp/ROOT is " + f);
 
         // Resolve file to directory
-        URI webRootUri = f.toURI().resolve("./").normalize();
-        System.err.println("WebRoot is " + webRootUri);
-        return Resource.newResource(webRootUri);
+        URL webRoot = new URL(url.substring(0, url.length() - 5));
+        System.err.println("WebRoot is " + webRoot);
+        return Resource.newResource(webRoot);
     }
 }
 

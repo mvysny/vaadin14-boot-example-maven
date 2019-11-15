@@ -19,6 +19,11 @@ Clone this github repository and import the project to the IDE of your choice as
 See [ManualJetty.java](src/main/java/com/vaadin/starter/skeleton/ManualJetty.java)
 for details on how Jetty is configured for embedded mode.
 
+### Missing `/src/main/webapp`?
+
+Yeah, since we're not packaging to war but to (uber)jar, the `webapp` folder needs to be
+served from the jar itself, and therefore it needs to reside in `src/main/resources/webapp`.
+
 ## Packaging for production
 
 To package in production mode:
