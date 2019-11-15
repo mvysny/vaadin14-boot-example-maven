@@ -128,6 +128,7 @@
         <resources>
             <resource>
                 <directory>src/main</directory>
+                <includes><include>webapp/**/*</include></includes>
                 <filtering>false</filtering> <!-- setting this to true may mangle your images: https://github.com/mvysny/vaadin14-embedded-jetty/issues/4 -->
             </resource>
         </resources>
