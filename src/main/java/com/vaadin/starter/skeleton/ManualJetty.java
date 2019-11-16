@@ -10,6 +10,7 @@ import org.eclipse.jetty.websocket.jsr356.server.deploy.WebSocketServerContainer
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Arrays;
 
 /**
  * Run {@link #main(String[])} to launch your app in Embedded Jetty.
@@ -39,13 +40,6 @@ public final class ManualJetty {
         context.addServlet(VaadinServlet.class, "/*");
         context.setAttribute("org.eclipse.jetty.server.webapp.ContainerIncludeJarPattern", ".*\\.jar|.*/classes/.*");
         context.setConfigurationDiscovered(true);
-        context.setConfigurations(new Configuration[] {
-                new AnnotationConfiguration(),
-                new WebInfConfiguration(),
-                new WebXmlConfiguration(),
-                new MetaInfConfiguration()
-                // new FragmentConfiguration() // ignores META-INF/web-fragment.xml from this jar, we have to do the production mode detection manually
-        });
         context.getServletContext().setExtendedListenerTypes(true);
         context.addEventListener(new ServletContextListeners());
         WebSocketServerContainerInitializer.initialize(context); // fixes IllegalStateException: Unable to configure jsr356 at that stage. ServerContainer is null
@@ -56,7 +50,10 @@ public final class ManualJetty {
         }
         server = new Server(port);
         server.setHandler(context);
+        final Configuration.ClassList classlist = Configuration.ClassList.setServerDefault(server);
+        classlist.addBefore(JettyWebXmlConfiguration.class.getName(), AnnotationConfiguration.class.getName());
         server.start();
+
         System.out.println("\n\n=================================================\n\n" +
         "Please open http://localhost:" + port + " in your browser\n\n" +
         "If you see the 'Unable to determine mode of operation' exception, just kill me and run `mvn -C clean package`\n\n" +
