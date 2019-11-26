@@ -6,6 +6,11 @@
 A demo project showing the possibility of running a Vaadin 14 app from an
 embedded Jetty, as a simple `main()` method.
 
+Both the development and production modes are supported. Also, the project
+demoes packaging both in to a fatjar/uberjar and a zip file containing
+a list of jars and a runner script. See "Packaging for production" below
+for more details.
+
 ## Developing
 
 Clone this github repository and import the project to the IDE of your choice as a Maven project. You need to have Java 8 or 11 installed.
