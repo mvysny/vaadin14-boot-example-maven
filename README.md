@@ -7,7 +7,7 @@ A demo project showing the possibility of running a Vaadin 14 app from an
 embedded Jetty, as a simple `main()` method.
 
 Both the development and production modes are supported. Also, the project
-demoes packaging both in to a fatjar/uberjar and a zip file containing
+demoes packaging itself both into a fatjar/uberjar and a zip file containing
 a list of jars and a runner script. See "Packaging for production" below
 for more details.
 
