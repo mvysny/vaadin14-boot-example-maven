@@ -7,7 +7,7 @@ A demo project showing the possibility of running a Vaadin 14 app from an
 embedded Jetty, as a simple `main()` method.
 
 Both the development and production modes are supported. Also, the project
-demoes packaging itself both into a fatjar/uberjar and a zip file containing
+demoes packaging itself both into a flatten uberjar and a zip file containing
 a list of jars and a runner script. See "Packaging for production" below
 for more details.
 
@@ -26,7 +26,7 @@ for details on how Jetty is configured for embedded mode.
 
 ### Missing `/src/main/webapp`?
 
-Yeah, since we're not packaging to war but to (uber)jar, the `webapp` folder needs to be
+Yeah, since we're not packaging to WAR but to uberjar/zip+jar, the `webapp` folder needs to be
 served from the jar itself, and therefore it needs to reside in `src/main/resources/webapp`.
 
 ## Packaging for production
@@ -37,8 +37,9 @@ To package in production mode:
 
 The project packages itself in two ways:
 
-1. As an uber-jar (a jar with all dependencies, which you can simply launch with `java -jar`);
-   the disadvantage is that the dependency jars are not clearly visible. The deployable file is in `target/vaadin14-embedded-jetty-1.0-SNAPSHOT-uberjar.jar`
+1. As a flatten uberjar (a jar with all dependencies unpacked inside, which you can simply launch with `java -jar`).
+   Please read below regarding inherent issues with flatten uberjars.
+   The deployable file is in `target/vaadin14-embedded-jetty-1.0-SNAPSHOT-uberjar.jar`
 2. As a zip file with dependencies. The file is in `target/vaadin14-embedded-jetty-1.0-SNAPSHOT-zip.zip`
 
 ## Running in production mode
@@ -57,6 +58,18 @@ To build&run the zip file:
 4. `./run`
 
 Head to [localhost:8080/](http://localhost:8080).
+
+## Warning regarding flatten uberjar
+
+Flatten uberjar (everything unpacked, then packed as a single jar)
+has an inherent issue that it disallows repeated resources, such as
+`META-INF/services/`, simply throwing away any additional services, which could
+prevent certain libraries to remain unconfigured.
+You should therefore always prefer the zip+jar distribution; if you keep using
+uberjar then please keep these limitations in mind.
+
+Another inherent issue is that it's impossible to see the dependencies of the app
+as a list of jars, since everything is unpacked.
 
 ## About The Project
 
