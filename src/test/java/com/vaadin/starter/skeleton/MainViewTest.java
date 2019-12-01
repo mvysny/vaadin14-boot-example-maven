@@ -4,12 +4,13 @@ import com.github.mvysny.kaributesting.v10.MockVaadin;
 import com.github.mvysny.kaributesting.v10.Routes;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static com.github.mvysny.kaributesting.v10.LocatorJ.*;
+import static com.github.mvysny.kaributesting.v10.LocatorJ._click;
+import static com.github.mvysny.kaributesting.v10.LocatorJ._get;
 import static com.github.mvysny.kaributesting.v10.NotificationsKt.expectNotifications;
 
 /**
@@ -19,18 +20,18 @@ import static com.github.mvysny.kaributesting.v10.NotificationsKt.expectNotifica
 public class MainViewTest {
     private static Routes routes;
 
-    @BeforeClass
+    @BeforeAll
     public static void createRoutes() {
         // initialize routes only once, to avoid view auto-detection before every test and to speed up the tests
         routes = new Routes().autoDiscoverViews("com.vaadin.starter.skeleton");
     }
 
-    @Before
+    @BeforeEach
     public void setupVaadin() {
         MockVaadin.setup(routes);
     }
 
-    @After
+    @AfterEach
     public void teardownVaadin() {
         MockVaadin.tearDown();
     }

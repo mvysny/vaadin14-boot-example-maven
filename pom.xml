@@ -16,6 +16,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <failOnMissingWebXml>false</failOnMissingWebXml>
 
+        <!-- don't v-bump Vaadin because of https://github.com/vaadin/flow/issues/7060 -->
         <vaadin.version>14.0.12</vaadin.version>
         <jetty.version>9.4.20.v20190813</jetty.version>
 
@@ -113,13 +114,13 @@
         <dependency>
             <groupId>com.github.mvysny.kaributesting</groupId>
             <artifactId>karibu-testing-v10</artifactId>
-            <version>1.1.16</version>
+            <version>1.1.17</version>
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.5.2</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -174,6 +175,12 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+
+            <!-- Need at least 2.22.0 to support JUnit 5 -->
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M3</version>
             </plugin>
         </plugins>
     </build>
