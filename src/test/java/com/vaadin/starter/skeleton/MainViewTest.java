@@ -14,7 +14,15 @@ import static com.github.mvysny.kaributesting.v10.LocatorJ._get;
 import static com.github.mvysny.kaributesting.v10.NotificationsKt.expectNotifications;
 
 /**
- * Uses the Karibu-Testing framework: https://github.com/mvysny/karibu-testing/tree/master/karibu-testing-v10
+ * In this app we employ the browserless testing technique, which allows for very quick and easy test run.
+ * Please see [Karibu-Testing](https://github.com/mvysny/karibu-testing) for a list of advantages of
+ * browserless tests.
+ *
+ * Makes sure that the app is "up" (initialized in this JVM) and Vaadin
+ * is properly mocked, so that we can navigate around the app and poke the UI.
+ *
+ * Since we already have a JVM (the one which runs these tests), Vaadin is mocked and
+ * we will not use an actual browser for testing, we do not need to actually start Jetty.
  * @author mavi
  */
 public class MainViewTest {
