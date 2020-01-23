@@ -38,13 +38,13 @@ To package in production mode:
 The project packages itself in two ways:
 
 1. As a flatten uberjar (a jar with all dependencies unpacked inside, which you can simply launch with `java -jar`).
-   Please read below regarding inherent issues with flatten uberjars.
+   Please read below regarding inherent issues with flat uberjars.
    The deployable file is in `target/vaadin14-embedded-jetty-1.0-SNAPSHOT-uberjar.jar`
 2. As a zip file with dependencies. The file is in `target/vaadin14-embedded-jetty-1.0-SNAPSHOT-zip.zip`
 
 ## Running in production mode
 
-To build&run the uberjar:
+To build&run the flat uberjar:
 
 1. `mvn -C clean package -Pproduction`
 2. `cd target`
@@ -59,17 +59,17 @@ To build&run the zip file:
 
 Head to [localhost:8080/](http://localhost:8080).
 
-## Warning regarding flatten uberjar
+## Warning Regarding Flat Uberjar
 
-Flatten uberjar (everything unpacked, then packed as a single jar)
-has an inherent issue that it disallows repeated resources, such as
-`META-INF/services/`, simply throwing away any additional services, which could
-prevent certain libraries to remain unconfigured.
+There is an inherent problem with flat uberjar (everything unpacked, then packed as a single jar):
+it disallows repeated resources or duplicate files. That can be problematic especially for Java Service API
+property files located under `META-INF/services/`, since the flat uberjar will simply
+throw away any duplicate property files, which can cause certain libraries to remain unconfigured.
 You should therefore always prefer the zip+jar distribution; if you keep using
-uberjar then please keep these limitations in mind.
+flat uberjar then please keep these limitations in mind.
 
 Another inherent issue is that it's impossible to see the dependencies of the app
-as a list of jars, since everything is unpacked.
+as a list of jars in the `lib/` folder, since everything is unpacked into one huge jar file.
 
 ## About The Project
 
