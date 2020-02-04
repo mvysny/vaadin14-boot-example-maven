@@ -77,7 +77,7 @@ Let's look at all files that this project is composed of, and what are the point
 
 | Files | Meaning
 | ----- | -------
-| [pom.xml](pom.xml) | Maven 2 build tool configuration files. Maven is used to compile your app, download all dependency jars and build a war file
+| [pom.xml](pom.xml) | Maven 3 build tool configuration files. Maven is used to compile your app, download all dependency jars and build the zip+uberjar file
 | [.travis.yml](.travis.yml) | Configuration file for [Travis-CI](http://travis-ci.org/) which tells Travis how to build the app. Travis watches your repo; it automatically builds your app and runs all the tests after every commit.
 | [.gitignore](.gitignore) | Tells [Git](https://git-scm.com/) to ignore files that can be produced from your app's sources - be it files produced by Gradle, Intellij project files etc.
 | [Procfile](Procfile) | Configures Heroku on how your application is launched in the cloud.
