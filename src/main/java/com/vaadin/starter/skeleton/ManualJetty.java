@@ -33,6 +33,7 @@ public final class ManualJetty {
             System.out.println("Production mode detected, enforcing");
             System.setProperty("vaadin.productionMode", "true");
         }
+        System.setProperty("vaadin.pnpm.enable", "true");
 
         final WebAppContext context = new WebAppContext();
         context.setBaseResource(findWebRoot());

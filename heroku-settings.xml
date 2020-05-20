@@ -9,6 +9,5 @@
 
     <activeProfiles>
         <activeProfile>production</activeProfile>
-        <activeProfile>heroku</activeProfile>
     </activeProfiles>
 </settings>

@@ -9,7 +9,7 @@ before_install:
   - sed -i "s/activeByDefault>true</activeByDefault>false</g"  ~/.m2/settings.xml
 
 script:
-  - mvn -B -e -V clean verify
+  - mvn -B -e -V clean package -Pproduction
 
 # Cache requires a master build
 branches:
@@ -17,8 +17,7 @@ branches:
     - master
 cache:
   directories:
-  - $HOME/.m2
-before_cache:
-  # remove all build artifacts
-  - rm -rf $HOME/.m2/repository/com/vaadin/flow
-  - rm -rf $HOME/.m2/repository/com/vaadin/flow-*
+    - $HOME/.m2
+    - $HOME/.vaadin
+    - $HOME/.pnpm-store
+    - node_modules
