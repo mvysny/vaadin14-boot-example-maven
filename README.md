@@ -16,11 +16,19 @@ for more details.
 
 Clone this github repository and import the project to the IDE of your choice as a Maven project. You need to have Java 8 or 11 installed.
 
+To run quickly from the command-line in development mode:
+
+1. Run `./mvnw -C run`
+2. Your app will be running on [http://localhost:8080](http://localhost:8080).
+
+To run the app from your IDE:
+
 1. Import the project into your IDE
 2. Run `mvn -C clean package` in the project, to configure Vaadin for npm mode.
 3. Run/Debug the `ManualJetty` class as an application (run the `main()` method).
    The app will use npm to download all javascript libraries (will take a long time)
    and will start in development mode.
+4. Your app will be running on [http://localhost:8080](http://localhost:8080).
    
 See [ManualJetty.java](src/main/java/com/vaadin/starter/skeleton/ManualJetty.java)
 for details on how Jetty is configured for embedded mode.
