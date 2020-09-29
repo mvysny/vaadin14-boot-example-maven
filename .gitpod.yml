@@ -10,7 +10,7 @@ ports:
 # start up tasks
 tasks:
 - init: ./mvnw -C clean package -Pproduction
-  command: ./mvnw -C clean package run
+  command: ./mvnw -C clean package exec:java
 github:
   prebuilds:
     master: true
