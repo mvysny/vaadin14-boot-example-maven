@@ -19,7 +19,7 @@ Clone this github repository and import the project to the IDE of your choice as
 
 To run quickly from the command-line in development mode:
 
-1. Run `./mvnw -C run`
+1. Run `./mvnw -C clean package exec:java`
 2. Your app will be running on [http://localhost:8080](http://localhost:8080).
 
 To run the app from your IDE:

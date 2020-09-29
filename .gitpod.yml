@@ -9,8 +9,8 @@ ports:
   onOpen: open-preview
 # start up tasks
 tasks:
-- init: ./mvnw clean package -Pproduction
-  command: ./mvnw jetty:run
+- init: ./mvnw -C clean package -Pproduction
+  command: ./mvnw -C clean package run
 github:
   prebuilds:
     master: true
