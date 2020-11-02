@@ -16,8 +16,8 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <failOnMissingWebXml>false</failOnMissingWebXml>
 
-        <vaadin.version>14.3.7</vaadin.version>
-        <jetty.version>9.4.31.v20200723</jetty.version>
+        <vaadin.version>14.4.2</vaadin.version>
+        <jetty.version>9.4.33.v20201020</jetty.version>
     </properties>
 
     <repositories>
@@ -123,7 +123,7 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.6.2</version>
+            <version>5.7.0</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
