@@ -17,6 +17,8 @@
         <failOnMissingWebXml>false</failOnMissingWebXml>
 
         <vaadin.version>14.4.6</vaadin.version>
+        <!-- don't use Jetty 10 - requres Java 11
+	     don't use Jetty 11+ - uses jakarta.Servlet instead of javax.Servlet which makes it incompatible with Vaadin -->
         <jetty.version>9.4.36.v20210114</jetty.version>
     </properties>
 
