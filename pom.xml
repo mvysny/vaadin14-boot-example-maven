@@ -16,8 +16,8 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <failOnMissingWebXml>false</failOnMissingWebXml>
 
-        <vaadin.version>14.4.4</vaadin.version>
-        <jetty.version>9.4.35.v20201120</jetty.version>
+        <vaadin.version>14.4.6</vaadin.version>
+        <jetty.version>9.4.36.v20210114</jetty.version>
     </properties>
 
     <repositories>
@@ -117,7 +117,7 @@
         <dependency>
             <groupId>com.github.mvysny.kaributesting</groupId>
             <artifactId>karibu-testing-v10</artifactId>
-            <version>1.2.6</version>
+            <version>1.2.8</version>
             <scope>test</scope>
         </dependency>
         <dependency>
