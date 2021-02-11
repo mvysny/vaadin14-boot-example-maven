@@ -89,6 +89,7 @@
             <version>3.1.0</version>
         </dependency>
 
+        <!-- Embedded Jetty dependencies -->
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-continuation</artifactId>
