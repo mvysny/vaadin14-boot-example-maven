@@ -7,6 +7,7 @@ import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.util.resource.Resource;
 import org.eclipse.jetty.webapp.*;
 import org.eclipse.jetty.websocket.jsr356.server.deploy.WebSocketServerContainerInitializer;
+import org.jetbrains.annotations.NotNull;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -20,12 +21,12 @@ public final class ManualJetty {
 
     private static Server server;
 
-    public static void main(String[] args) throws Exception {
+    public static void main(@NotNull String[] args) throws Exception {
         start(args);
         server.join();
     }
 
-    public static void start(String[] args) throws Exception {
+    public static void start(@NotNull String[] args) throws Exception {
         // use pnpm instead of npm
         System.setProperty("vaadin.pnpm.enable", "true");
 
@@ -73,6 +74,7 @@ public final class ManualJetty {
         return classLoader.getResource(probe) != null;
     }
 
+    @NotNull
     private static Resource findWebRoot() throws MalformedURLException {
         // don't look up directory as a resource, it's unreliable: https://github.com/eclipse/jetty.project/issues/4173#issuecomment-539769734
         // instead we'll look up the /webapp/ROOT and retrieve the parent folder from that.
