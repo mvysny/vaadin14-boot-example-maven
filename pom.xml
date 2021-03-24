@@ -184,7 +184,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.vaadin.starter.skeleton.ManualJetty</mainClass>
+                            <mainClass>com.vaadin.starter.skeleton.Main</mainClass>
                         </manifest>
                     </archive>
                     <descriptors>
@@ -214,7 +214,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>1.6.0</version>
                 <configuration>
-                    <mainClass>com.vaadin.starter.skeleton.ManualJetty</mainClass>
+                    <mainClass>com.vaadin.starter.skeleton.Main</mainClass>
                 </configuration>
             </plugin>
         </plugins>
