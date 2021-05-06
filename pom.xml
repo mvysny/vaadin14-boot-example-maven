@@ -16,7 +16,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <failOnMissingWebXml>false</failOnMissingWebXml>
 
-        <vaadin.version>14.5.1</vaadin.version>
+        <vaadin.version>19.0.6</vaadin.version>
         <!-- don't use Jetty 10 - requres Java 11
 	     don't use Jetty 11+ - uses jakarta.Servlet instead of javax.Servlet which makes it incompatible with Vaadin -->
         <jetty.version>9.4.36.v20210114</jetty.version>
