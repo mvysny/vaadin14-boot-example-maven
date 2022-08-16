@@ -26,9 +26,6 @@ public final class Main {
     }
 
     public static void start(@NotNull String[] args) throws Exception {
-        // use pnpm instead of npm
-        System.setProperty("vaadin.pnpm.enable", "true");
-
         // detect&enable production mode
         if (isProductionMode()) {
             // fixes https://github.com/mvysny/vaadin14-embedded-jetty/issues/1
