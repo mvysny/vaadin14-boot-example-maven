@@ -11,7 +11,9 @@ demoes packaging itself both into a flatten uberjar and a zip file containing
 a list of jars and a runner script. See "Packaging for production" below
 for more details.
 
-> Looking for Gradle version? See [vaadin14-embedded-jetty-gradle](https://github.com/mvysny/vaadin14-embedded-jetty-gradle)
+> Looking for **Vaadin 14 Gradle** version? See [vaadin14-embedded-jetty-gradle](https://github.com/mvysny/vaadin14-embedded-jetty-gradle)
+
+> Looking for **Vaadin 23 Maven** version? See [vaadin-embedded-jetty](https://github.com/mvysny/vaadin-embedded-jetty)
 
 ## Developing
 
