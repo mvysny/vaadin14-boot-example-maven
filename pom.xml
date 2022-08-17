@@ -19,7 +19,7 @@
         <vaadin.version>14.8.15</vaadin.version>
         <!-- don't use Jetty 10 - requres Java 11
 	     don't use Jetty 11+ - uses jakarta.Servlet instead of javax.Servlet which makes it incompatible with Vaadin -->
-        <jetty.version>9.4.44.v20210927</jetty.version>
+        <jetty.version>9.4.48.v20220622</jetty.version>
     </properties>
 
     <repositories>
