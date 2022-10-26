@@ -4,7 +4,7 @@
 # Vaadin 14 npm Polymer 3 running in Embedded Jetty
 
 A demo project showing the possibility of running a Vaadin 14 app from an
-embedded Jetty, as a simple `main()` method.
+embedded Jetty, as a simple `main()` method. Uses [Vaadin Boot](https://github.com/mvysny/vaadin-boot).
 
 Both the development and production modes are supported. Also, the project
 demoes packaging itself both into a flatten uberjar and a zip file containing
