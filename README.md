@@ -92,7 +92,6 @@ Let's look at all files that this project is composed of, and what are the point
 | [pom.xml](pom.xml) | Maven 3 build tool configuration files. Maven is used to compile your app, download all dependency jars and build the zip+uberjar file
 | [.travis.yml](.travis.yml) | Configuration file for [Travis-CI](http://travis-ci.org/) which tells Travis how to build the app. Travis watches your repo; it automatically builds your app and runs all the tests after every commit.
 | [.gitignore](.gitignore) | Tells [Git](https://git-scm.com/) to ignore files that can be produced from your app's sources - be it files produced by Gradle, Intellij project files etc.
-| [Procfile](Procfile) | Configures Heroku on how your application is launched in the cloud.
 | [webpack.config.js](webpack.config.js) | TODO
 | [src/main/java](src/main/java) | Place the sources of your app here.
 | [MainView.java](src/main/java/com/vaadin/starter/skeleton/MainView.java) | The main view, shown when you browse for http://localhost:8080/
@@ -104,18 +103,6 @@ Let's look at all files that this project is composed of, and what are the point
 | [MainViewTest.java](src/test/java/com/vaadin/starter/skeleton/MainViewTest.java) | Tests the Vaadin UI; uses the [Karibu-Testing](https://github.com/mvysny/karibu-testing) UI test library.
 | [frontend/](frontend) | TODO
 | `node_modules` | populated by `npm` - contains sources of all JavaScript web components.
-
-## Heroku Integration
-
-See the [Live Demo of the app running on Heroku](https://vaadin14-embedded-jetty.herokuapp.com/).
-
-To integrate with Heroku, you need to activate the `production` Maven profile
-which packages Vaadin in production mode
-
-The profile is activated by [heroku-settings.xml](heroku-settings.xml) Maven Settings file. To use the settings
-file during Heroku build, set the `MAVEN_SETTINGS_PATH` config var to `heroku-settings.xml` in Heroku project settings tab.
-See [Using a Custom Maven Settings File](https://devcenter.heroku.com/articles/using-a-custom-maven-settings-xml) and
-[Stack Overflow: Activate Maven Profile On Heroku](https://stackoverflow.com/questions/11162194/triggering-maven-profiles-from-heroku-configured-environment-variables) for more details.
 
 ## More info
 
