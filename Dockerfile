@@ -10,7 +10,7 @@
 FROM openjdk:11 AS BUILD
 COPY . /app/
 WORKDIR /app/
-RUN ./mvnw clean test package -Pproduction
+RUN ./mvnw -C clean test package -Pproduction
 WORKDIR /app/target/
 RUN ls -la
 RUN unzip *.zip -d app/
