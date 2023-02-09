@@ -1,4 +1,6 @@
 {
+  "name": "no-name",
+  "license": "UNLICENSED",
   "dependencies": {
     "@polymer/iron-a11y-announcer": "3.0.2",
     "@polymer/iron-a11y-keys-behavior": "3.0.1",
@@ -80,8 +82,6 @@
     "webpack-dev-server": "3.11.0",
     "webpack-merge": "4.2.2"
   },
-  "license": "UNLICENSED",
-  "name": "no-name",
   "vaadin": {
     "dependencies": {
       "@polymer/iron-a11y-announcer": "3.0.2",
