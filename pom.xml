@@ -64,7 +64,7 @@
         <dependency>
             <groupId>com.github.mvysny.vaadin-boot</groupId>
             <artifactId>vaadin-boot</artifactId>
-            <version>10.3</version>
+            <version>10.4</version>
         </dependency>
 
         <!-- Added to provide logging output as Vaadin uses -->
@@ -91,7 +91,7 @@
         <dependency>
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>
-            <version>22.0.0</version>
+            <version>23.1.0</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
