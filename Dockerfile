@@ -1,7 +1,7 @@
 # Allows you to run this app easily as a docker container.
 # See README.md for more details.
 #
-# 1. Build the image with: docker build --no-cache -t test/vaadin14-boot-example-maven:latest .
+# 1. Build the image with: docker build -t test/vaadin14-boot-example-maven:latest .
 # 2. Run the image with: docker run --rm -ti -p8080:8080 test/vaadin14-boot-example-maven
 #
 # Uses Docker Multi-stage builds: https://docs.docker.com/build/building/multi-stage/
@@ -10,7 +10,7 @@
 FROM openjdk:11 AS BUILD
 COPY . /app/
 WORKDIR /app/
-RUN ./mvnw -C clean test package -Pproduction
+RUN --mount=type=cache,target=/root/.m2 --mount=type=cache,target=/root/.vaadin ./mvnw -C clean test package -Pproduction
 WORKDIR /app/target/
 RUN ls -la
 RUN unzip *.zip -d app/
